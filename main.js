@@ -1,3 +1,63 @@
+//$(document).ready(function(){
+//
+//   $('.row').on('click',function(){
+//     if(mustInputs)
+//      $().()
+// } )
+//
+//});
+
+
+
+function getTotalPoints() {
+
+
+   var mustInputs = [
+        {
+            id: 'class',
+            text: '班级',
+            divId: 'class_div'
+        },
+        {
+            id: 'number',
+            text: '学号',
+            divId:'number_div'
+        },
+        {
+            id: 'name',
+            text: '姓名',
+            divId:'name_div'
+        }
+    ];
+
+    if (hasEmptyMustInput(mustInputs)) {
+        return false;
+    }
+
+   return getScores();
+
+}
+
+function hasEmptyMustInput(inputs) {
+
+    for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        var element = document.getElementById(input.id);
+
+        if (element && _.isEmpty(element.value)) {
+            alert('请填写' + input.text + '！');
+            $('#'+input.divId).addClass('has-error');
+
+            return true;
+        }
+
+            else{
+                   $('#'+input.divId).removeClass('has-error');
+
+                   }
+            }
+     return false;
+    }
 function getBlankPoints(){
 
     var blankItem1 = new Items(['统一建模语言'], 5);
@@ -68,18 +128,18 @@ function getSelectionJudgePoints() {
 
 function getMultiPoints() {
 
-  var v7 = document.getElementById("blank3_1_1").checked;
-  var v8 = document.getElementById("blank3_1_2").checked;
-  var v9 = document.getElementById("blank3_1_3").checked;
-  var v10 = document.getElementById("blank3_1_4").checked;
-  var v11 = document.getElementById("blank3_2_1").checked;
-  var v12 = document.getElementById("blank3_2_2").checked;
-  var v13 = document.getElementById("blank3_2_3").checked;
-  var v14 = document.getElementById("blank3_2_4").checked;
+  var value7 = document.getElementById("blank3_1_1").checked;
+  var value8 = document.getElementById("blank3_1_2").checked;
+  var value9 = document.getElementById("blank3_1_3").checked;
+  var value10 = document.getElementById("blank3_1_4").checked;
+  var value11 = document.getElementById("blank3_2_1").checked;
+  var value12 = document.getElementById("blank3_2_2").checked;
+  var value13 = document.getElementById("blank3_2_3").checked;
+  var value14 = document.getElementById("blank3_2_4").checked;
   var MutiPoints1 = 0;
   var MutiPoints2 = 0;
-  var multiAnswer1 = (v7&&v8&&v10)&&(!v9);
-  var multiAnswer2 = (v11&&v12&&v13)&&(!v14);
+  var multiAnswer1 = (value7 && value8 && value10) && (!value9);
+  var multiAnswer2 = (value11 && value12 && value13) && (!value14);
   if(multiAnswer1){
       MutiPoints1 = 10;
      }
@@ -103,89 +163,17 @@ function getShortAnswerPoints(){
     return shortAnswer.points;
   }
 
-function getTotalPoints() {
 
-    var requiredInputs = [
-        {
-            id: 'class',
-            text: '班级'
-        },
-        {
-            id: 'number',
-            text: '学号'
-        },
-        {
-            id: 'name',
-            text: '姓名'
-        }
-    ];
-
-    if (hasEmptyRequiredInput(requiredInputs)) {
-        return false;
-    }
-
-   return getScores();
-
-}
-
-function hasEmptyRequiredInput(inputs) {
-
-    for (var i = 0; i < inputs.length; i++) {
-        var input = inputs[i];
-        var element = document.getElementById(input.id);
-        if (element && _.isEmpty(element.value)) {
-            alert('请填写' + input.text + '！');
-              if(input.text === '班级'){
-
-                document.getElementById("class_div").className = "has-error";
-                return true;
-                break;
-
-              }
-            else{
-
-              document.getElementById("class_div").className = "form control";
-            }
-
-              if(input.text === '学号'){
-
-                document.getElementById("number_div").className = "has-error";
-                return true;
-                break;
-
-              }
-              else{
-
-                document.getElementById("number_div").className = "form control";
-              }
-
-              if(input.text === '姓名'){
-
-                document.getElementById("name_div").className = "has-error";
-                return true;
-                break;
-              }
-
-              else{
-
-                document.getElementById("name_div").className = "form control";
-              }
-
-        }
-    }
-
-    return false;
-
-}
 
 function getScores(){
 
-  var v18 = document.getElementById("scores");
+  var value18 = document.getElementById("scores");
   var totalpoints = 0;
 
   totalpoints = getBlankPoints() + getSelectionJudgePoints()+ getMultiPoints() + getShortAnswerPoints();
-  v18.innerHTML =totalpoints;
-  v18.style.color = 'red';
-  
+  value18.innerHTML =totalpoints;
+  //value18.style.color = 'red';
+    $('#'+scoresId).addClass('has-error');
+
   return false;
 }

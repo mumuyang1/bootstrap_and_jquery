@@ -1,45 +1,59 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-CN">
 <head>
-  <title>统一建模理论语言测试</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="mystyle.css">
   <link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css">
+    <title>统一建模理论语言测试</title>
 </head>
 
 <body>
   <div class=container>
   <form action="#" method="post" onSubmit="return getTotalPoints();">
-      <h1>统一建模理论语言测试</h1>
+      <h1 class="text-center">统一建模理论语言测试</h1>
       <div class="panel panel-default">
         <div class="panel-body">
-           <div class="col-md-4">考试科目 : 统一建模语言UML</div>
-           <div class="col-md-4">时间：100分钟</div>
-           <div class="col-md-4">得分：<span  id= "scores" value=""></span></div>
-        </div>
+            <div class="row">
+               <div class="col-md-4">考试科目 : 统一建模语言UML</div>
+               <div class="col-md-4">时间：100分钟</div>
+               <div class="col-md-4">
+                   <div id="scoresId">
+                       <label class="control-label">
+                         得分：<span  id= "scores" value=""></span>
+                       <lable>
+                   </div>
+               </div>
+            </div>
       </div>
+     </div>
         <div class="panel panel-default">
           <div class="panel-body">
-            <div class="col-md-4" >
-              <label>
-                班级 :
-                <div id="class_div"><input class="form-control" type="text" id="class" value=""></div>
-              </label>
-            </div>
-          <div class="col-md-4">
-              <lable>
-              学号 :
-               <div id="number_div"><input class="form-control" type="text" id="number" value=""></div>
-              </label>
-          </div>
-            <div class="col-md-4">
-              姓名 :
-              <div id="name_div"><input class="form-control" type="text" id="name"  value=""></div>
+             <div class="row">
+                <div id="class_div" class="col-md-4 form-group" >
+                  <label class="control-label">
+                    班级 :
+                    <div ><input class="form-control" type="text" id="class" value=""></div>
+                   </label>
+                   </div>
+                      <div id="number_div"class="col-md-4 form-group">
+                          <label class="control-label">
+                          学号 :
+                           <div ><input class="form-control" type="text" id="number" value=""></div>
+                          </label>
+                      </div>
+                <div id="name_div"class="col-md-4 form-group">
+                  <label class="control-label">
+                  姓名 :
+                  <div ><input class="form-control" type="text" id="name"  value=""></div>
+                </label>
+                </div>
             </div>
           </div>
         </div>
-   </section>
+
+
       <div class="panel panel-primary">
         <div class="panel-heading">一、 填空题(每空5分,共20分)</div>
           <div class="panel-body">
@@ -70,13 +84,13 @@
     <div class="panel-heading">三、多选题(每题10分,共20分)</div>
        <div class="panel-body">
           1.&nbsp;用例的粒度分为以下哪三种:<br>
-         <input type="checkbox" name="blank3_1" id="blank3_1_1" value="A">&nbsp;(A)&nbsp;概述级<br>
+         <input type="checkbox" name="blank3_1" id="blank3_1_1"value="A">&nbsp;(A)&nbsp;概述级<br>
          <input type="checkbox" name="blank3_1" id="blank3_1_2"value="B">&nbsp;(B)&nbsp;需求级<br>
          <input type="checkbox" name="blank3_1" id="blank3_1_3"value="C">&nbsp;(C)&nbsp;用户目标级<br>
          <input type="checkbox" name="blank3_1" id="blank3_1_4"value="D">&nbsp;(D)&nbsp;子功能级<br>
          2.&nbsp;类图由以下哪三部分组成:<br>
          <input type="checkbox" name="blank3_2" id="blank3_2_1"value="A">&nbsp;(A)&nbsp;名称(Name)<br>
-         <input type="checkbox" name="blank3_2" id="blank3_2_2" value="B">&nbsp;(B)&nbsp;属性(Attribute)<br>
+         <input type="checkbox" name="blank3_2" id="blank3_2_2"value="B">&nbsp;(B)&nbsp;属性(Attribute)<br>
          <input type="checkbox" name="blank3_2" id="blank3_2_3"value="C">&nbsp;(C)&nbsp;操作(Operation)<br>
          <input type="checkbox" name="blank3_2" id="blank3_2_4"value="D">&nbsp;(D)&nbsp;方法(Function)<br>
      </div>
@@ -85,24 +99,24 @@
     <div class="panel panel-success">
       <div class="panel-heading">四、判断题(每题10分,共20分)</div>
        <div class="panel-body">
-          1. &nbsp;用例图只是用于和客户交流和沟通的,用于确定需求。
+          1.&nbsp;用例图只是用于和客户交流和沟通的,用于确定需求。
           <input type="radio"name="blank4_1" id="blank4.1.1" value="V">
-          <span class="glyphicon glyphicon-ok red"></span>
+          <span class="glyphicon glyphicon-ok text-success " ></span>
           <input type="radio"name="blank4_1" id="blank4.1.2" value="X">
-          <span class="glyphicon glyphicon-remove green"></span><br>
+          <span class="glyphicon glyphicon-remove text-danger"></span><br>
           2.&nbsp; 在状态图中,终止状态在一个状态图中允许有任意多个。
           <input type="radio"name="blank4_2"id="blank4.2.1" value="V">
-          <span class="glyphicon glyphicon-ok red"></span>
+          <span class="glyphicon glyphicon-ok text-success "></span>
           <input type="radio"name="blank4_2"id="blank4.2.2" value="X">
-          <span class="glyphicon glyphicon-remove green"></span><br>
+          <span class="glyphicon glyphicon-remove text-danger"></span><br>
       </div>
     </div>
 
      <div class="panel panel-info">
        <div class="panel-heading">五、简答题(每题20分,共20分)</div>
         <div class="panel-body">
-            1. &nbsp;简述什么是模型以及模型的表现形式?<br>
-            <textarea id= "b"rows="4" cols="130">
+            1.&nbsp;简述什么是模型以及模型的表现形式?<br>
+            <textarea id="b"rows="4" cols="130">
             </textarea><br>
         </div>
       </div>
@@ -111,12 +125,13 @@
     </p>
   </form>
  </div>
+   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+   <script type="text/javaScript" src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="lodash-2.4.1/lodash.compat.js"></script>
+
   <script type="text/javaScript" src="main.js"></script>
   <script type="text/javaScript" src="model/items.js"></script>
   <script type="text/javaScript" src="model/selectionjudge.js"></script>
-  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javaScript" src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="lodash-2.4.1/lodash.compat.js"></script>
 
 </body>
 </html>
