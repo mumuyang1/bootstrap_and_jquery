@@ -41,7 +41,7 @@ function hasEmptyMustInput(inputs) {
         }
     }
     if(!tag){
-        alert('请填写完整个人信息！');
+        $('#myModal').modal();
         return true;
     }
     return false;
