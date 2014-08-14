@@ -31,7 +31,7 @@ function hasEmptyMustInput(inputs) {
     var tag = true;
     for (var i = 0; i < inputs.length; i++) {
         var input = inputs[i];
-        var element = document.getElementById(input.id);
+        var element =$("#"+input.id)[0];
 
         if (element && _.isEmpty(element.value)) {
             $('#' + input.divId).addClass('has-error');
@@ -51,11 +51,12 @@ function getBlankPoints() {
 
     var blankItem1 = new Items(['统一建模语言'], 5);
     var blankItem2 = new Items(['封装性', '继承性', '多态性'], 5);
-    var answer1 = document.getElementById("blank1_1_1");
+    var answer1 = $('#blank1_1_1').val();
     var answer2 = [];
-    answer2.push(document.getElementById("blank1_2_1").value);
-    answer2.push(document.getElementById("blank1_2_2").value);
-    answer2.push(document.getElementById("blank1_2_3").value);
+
+    answer2.push($('#blank1_2_1').val());
+    answer2.push($('#blank1_2_2').val());
+    answer2.push($('#blank1_2_3').val());
 
     if (answer1.value === blankItem1.key) {
 
@@ -117,14 +118,14 @@ function getSelectionJudgePoints() {
 
 function getMultiPoints() {
 
-    var value7 = document.getElementById("blank3_1_1").checked;
-    var value8 = document.getElementById("blank3_1_2").checked;
-    var value9 = document.getElementById("blank3_1_3").checked;
-    var value10 = document.getElementById("blank3_1_4").checked;
-    var value11 = document.getElementById("blank3_2_1").checked;
-    var value12 = document.getElementById("blank3_2_2").checked;
-    var value13 = document.getElementById("blank3_2_3").checked;
-    var value14 = document.getElementById("blank3_2_4").checked;
+    var value7 = $('#blank3_1_1'+':checked');
+    var value8 = $('#blank3_1_2'+':checked');
+    var value9 = $('#blank3_1_3'+':checked');
+    var value10 = $('#blank3_1_4'+':checked');
+    var value11 = $('#blank3_2_1'+':checked');
+    var value12 = $('#blank3_2_2'+':checked');
+    var value13 = $('#blank3_2_3'+':checked');
+    var value14 = $('#blank3_2_4'+':checked');
     var MutiPoints1 = 0;
     var MutiPoints2 = 0;
     var multiAnswer1 = (value7 && value8 && value10) && (!value9);
@@ -141,7 +142,7 @@ function getMultiPoints() {
 
 function getShortAnswerPoints() {
 
-    var value17 = document.getElementById("b");
+    var value17 = $('#b');
     var shortAnswer = new Items(['模型是对现实世界的简化和抽象,模型是对所研究的系统、过程、事物或概念的一种表达形式。可以是物理实体;可以是某种图形;或者是一种数学表达式。'], 20);
 
     if (value17.value == shortAnswer.key[0]) {
@@ -153,7 +154,7 @@ function getShortAnswerPoints() {
 
 function getScores() {
 
-    var value18 = document.getElementById("scores");
+    var value18 = $('#scores')[0];
     var totalpoints = 0;
 
     totalpoints = getBlankPoints() + getSelectionJudgePoints() + getMultiPoints() + getShortAnswerPoints();
